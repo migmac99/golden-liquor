@@ -1,26 +1,26 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.AI;
 
 public class PlayerNavigation : MonoBehaviour {
-    [SerializeField]
-    Transform _destination;
 
-    NavMeshAgent _navMeshAgent;
+    public LayerMask whatCanBeClickedOn;
+
+    private NavMeshAgent _navMeshAgent;
 
     void Start () {
-        _navMeshAgent = this.GetComponent<NavMeshAgent> ();
-
-        if (_navMeshAgent == null) {
-            Debug.LogError ("The nav mesh agent component is not attached to " + gameObject.name);
-        } else {
-            SetDestination ();
-        }
+        _navMeshAgent = GetComponent<NavMeshAgent> ();
     }
 
-    private void SetDestination () {
-        if (_destination != null) {
-            Vector3 targetVector = _destination.transform.position;
-            _navMeshAgent.SetDestination (targetVector);
+    void Update () {
+        if (Input.GetMouseButtonDown (0)) {
+            Ray myRay = Camera.main.ScreenPointToRay (Input.mousePosition);
+            RaycastHit hitInfo;
+
+            if (Physics.Raycast (myRay, out hitInfo, 100, whatCanBeClickedOn)) {
+                _navMeshAgent.SetDestination (hitInfo.point);
+            }
         }
     }
 }
