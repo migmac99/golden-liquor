@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\ClickToMove.cs" />
+     <Compile Include="Assets\Scripts\Loading.cs" />
      <Compile Include="Assets\Scripts\PlayerNavigation.cs" />
      <Compile Include="Assets\Scripts\SwitchScene.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
