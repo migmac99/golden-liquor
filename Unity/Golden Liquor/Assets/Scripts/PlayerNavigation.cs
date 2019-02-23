@@ -11,18 +11,12 @@ public class PlayerNavigation : MonoBehaviour {
 
     [Range (0, 1f)] public float ObjAlpha;
 
+    public GameObject TransparentObject;
+
     private NavMeshAgent _navMeshAgent;
 
     void Start () {
         _navMeshAgent = GetComponent<NavMeshAgent> ();
-    }
-
-    // Reusable timer that will execute CODE_HERE after the timer is done --> used in fight timers and such
-    // This is creating a CoRoutine which runs independently of the function it is called from
-    // StartCoroutine (Countdown (3f, () => {CODE_HERE}));
-    IEnumerator Countdown (float seconds, Action onComplete) {
-        yield return new WaitForSecondsRealtime (seconds);
-        onComplete ();
     }
 
     void Update () {
@@ -30,24 +24,35 @@ public class PlayerNavigation : MonoBehaviour {
         Ray MyRay = Camera.main.ScreenPointToRay (Input.mousePosition);
         RaycastHit HitInfo;
 
-        if (Input.GetMouseButtonDown (0)) {
+        if (Input.GetMouseButtonDown (0)) { //if mouse clicked then go to mouse position
             if (Physics.Raycast (MyRay, out HitInfo, 1000, WhatCanBeClickedOn)) {
                 _navMeshAgent.SetDestination (HitInfo.point);
             }
         }
 
-        if (Physics.Raycast (MyRay, out HitInfo, 1000, BuildingTag)) {
+        if (Physics.Raycast (MyRay, out HitInfo, 1000, BuildingTag)) { //if mouse on top of building make transparent
             Renderer[] renderers = HitInfo.transform.gameObject.GetComponentsInChildren<Renderer> ();
             foreach (var r in renderers) {
                 if (r.material.color.a == 1) {
                     r.material.color = new Color (1, 1, 1, ObjAlpha);
-                    Debug.Log ("SSSS");
-                } else {
-                    //StartCoroutine (Countdown (0f, () => { r.material.color = new Color (1, 1, 1, 1f); }));
+                    TransparentObject = HitInfo.transform.gameObject;
                 }
-                Debug.Log ("AAAA");
             }
-            Debug.Log ("ZZZZ");
         }
+
+        if (TransparentObject != null) { //avoid null exception error
+            if (Physics.Raycast (MyRay, out HitInfo, 1000)) { //If mouse not on building make transparency 1
+                if (HitInfo.transform.name != TransparentObject.name) {
+                    Renderer[] renderers = TransparentObject.gameObject.GetComponentsInChildren<Renderer> ();
+                    foreach (var r in renderers) {
+                        if (r.material.color.a != 1) {
+                            r.material.color = new Color (1, 1, 1, 1);
+                            TransparentObject = null;
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }
