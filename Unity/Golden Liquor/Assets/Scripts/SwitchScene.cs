@@ -4,13 +4,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SwitchScene : MonoBehaviour {
+
+    public GameObject LoadingController;
+
     void Update () {
         if (Input.GetKeyDown (KeyCode.Space)) {
-            SceneManager.LoadScene ("Barber-Shop");
+            LoadingController.GetComponent<LoadScene> ().LoadLevel ("Barber-Shop");
         }
 
         if (Input.GetKeyDown (KeyCode.LeftShift)) {
-            SceneManager.LoadScene ("Golden-Liquor");
+            LoadingController.GetComponent<LoadScene> ().LoadLevel ("Golden-Liquor");
         }
 
     }

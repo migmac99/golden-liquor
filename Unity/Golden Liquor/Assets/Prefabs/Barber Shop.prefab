@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4763150886025835179}
+  - component: {fileID: 4387622671630053324}
   m_Layer: 0
   m_Name: Barber Shop
   m_TagString: Untagged
@@ -38,6 +39,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
+--- !u!65 &4387622671630053324
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4763150886025835178}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 5, z: 10}
+  m_Center: {x: 0, y: 2.5, z: 0}
 --- !u!1001 &4763150885547251490
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48,6 +62,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: d22293ee437bf0241a2cdb6a61c44995, type: 3}
       propertyPath: m_Name
       value: SpeakEZ doorframe
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d22293ee437bf0241a2cdb6a61c44995, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d22293ee437bf0241a2cdb6a61c44995, type: 3}
       propertyPath: m_LocalPosition.x
@@ -96,7 +114,7 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: d22293ee437bf0241a2cdb6a61c44995, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ae34cfe6caef11c45b1d84cbd373a6f0, type: 2}
+      objectReference: {fileID: 2100000, guid: e07ca7e915428b94b9a253747b801b74, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d22293ee437bf0241a2cdb6a61c44995, type: 3}
 --- !u!4 &4763150885547642274 stripped
@@ -115,6 +133,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 5396b339f9a4e204fb850cf4850717d5, type: 3}
       propertyPath: m_Name
       value: West wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 5396b339f9a4e204fb850cf4850717d5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5396b339f9a4e204fb850cf4850717d5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -163,7 +185,7 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: 5396b339f9a4e204fb850cf4850717d5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ae34cfe6caef11c45b1d84cbd373a6f0, type: 2}
+      objectReference: {fileID: 2100000, guid: af6329bc1f232da4ab7ccef947d5ce51, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5396b339f9a4e204fb850cf4850717d5, type: 3}
 --- !u!4 &4763150886069633163 stripped
@@ -182,6 +204,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 6ef99b2a9a83cc44182193f1095a6238, type: 3}
       propertyPath: m_Name
       value: Barber door 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6ef99b2a9a83cc44182193f1095a6238, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6ef99b2a9a83cc44182193f1095a6238, type: 3}
       propertyPath: m_LocalPosition.x
@@ -230,7 +256,7 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: 6ef99b2a9a83cc44182193f1095a6238, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ae34cfe6caef11c45b1d84cbd373a6f0, type: 2}
+      objectReference: {fileID: 2100000, guid: 7ad566989ecfad34fa9229d212449aa5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ef99b2a9a83cc44182193f1095a6238, type: 3}
 --- !u!4 &4763150886279055414 stripped
@@ -249,6 +275,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: c5889130a209ffb48b4b105c7c25749b, type: 3}
       propertyPath: m_Name
       value: Est wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c5889130a209ffb48b4b105c7c25749b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c5889130a209ffb48b4b105c7c25749b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -297,7 +327,7 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: c5889130a209ffb48b4b105c7c25749b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ae34cfe6caef11c45b1d84cbd373a6f0, type: 2}
+      objectReference: {fileID: 2100000, guid: 6a0fbd9ade85e7442880bc0a50d0ea0e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5889130a209ffb48b4b105c7c25749b, type: 3}
 --- !u!4 &4763150886571164915 stripped
@@ -316,6 +346,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 17c21ef2e59e467428d27f6960aeb811, type: 3}
       propertyPath: m_Name
       value: Barber Shop
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 17c21ef2e59e467428d27f6960aeb811, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 17c21ef2e59e467428d27f6960aeb811, type: 3}
       propertyPath: m_LocalPosition.x
@@ -364,7 +398,7 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: 17c21ef2e59e467428d27f6960aeb811, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ae34cfe6caef11c45b1d84cbd373a6f0, type: 2}
+      objectReference: {fileID: 2100000, guid: 5388a4cbf3e70dc499f3247e0940e21b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17c21ef2e59e467428d27f6960aeb811, type: 3}
 --- !u!4 &4763150886668702878 stripped
@@ -383,6 +417,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3b497ba103ee92a49bb141c03257d084, type: 3}
       propertyPath: m_Name
       value: Roof
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3b497ba103ee92a49bb141c03257d084, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3b497ba103ee92a49bb141c03257d084, type: 3}
       propertyPath: m_LocalPosition.x
@@ -431,7 +469,7 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: 3b497ba103ee92a49bb141c03257d084, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ae34cfe6caef11c45b1d84cbd373a6f0, type: 2}
+      objectReference: {fileID: 2100000, guid: 396e554d80bc58e40bd11930b7d1bd48, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b497ba103ee92a49bb141c03257d084, type: 3}
 --- !u!4 &4763150887174365432 stripped
@@ -450,6 +488,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 4c3bb4a644e534446a59d1fca5eec311, type: 3}
       propertyPath: m_Name
       value: Barber door
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 4c3bb4a644e534446a59d1fca5eec311, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4c3bb4a644e534446a59d1fca5eec311, type: 3}
       propertyPath: m_LocalPosition.x
@@ -498,7 +540,7 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: 4c3bb4a644e534446a59d1fca5eec311, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ae34cfe6caef11c45b1d84cbd373a6f0, type: 2}
+      objectReference: {fileID: 2100000, guid: 752689aef8c49664783f81d588e93664, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c3bb4a644e534446a59d1fca5eec311, type: 3}
 --- !u!4 &4763150887286794945 stripped
@@ -517,6 +559,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 9a870dc9c037d1e4995c6937245bd2ee, type: 3}
       propertyPath: m_Name
       value: Speak easy door
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9a870dc9c037d1e4995c6937245bd2ee, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9a870dc9c037d1e4995c6937245bd2ee, type: 3}
       propertyPath: m_LocalPosition.x
@@ -565,7 +611,7 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: 9a870dc9c037d1e4995c6937245bd2ee, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ae34cfe6caef11c45b1d84cbd373a6f0, type: 2}
+      objectReference: {fileID: 2100000, guid: 222830fcf6344d148b36b580cd3c63cc, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a870dc9c037d1e4995c6937245bd2ee, type: 3}
 --- !u!4 &4763150887453981003 stripped
