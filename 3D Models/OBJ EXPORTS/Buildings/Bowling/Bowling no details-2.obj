@@ -1,10 +1,10 @@
 # MagicaVoxel @ Ephtracy
 
 # group
-g --2
+g Bowling no details-2
 
 # material
-mtllib --2.mtl
+mtllib Bowling no details-2.mtl
 usemtl palette
 
 # normals
