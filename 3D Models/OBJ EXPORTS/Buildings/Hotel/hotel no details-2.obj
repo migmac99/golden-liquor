@@ -1,10 +1,10 @@
 # MagicaVoxel @ Ephtracy
 
 # group
-g --2
+g hotel no details-2
 
 # material
-mtllib --2.mtl
+mtllib hotel no details-2.mtl
 usemtl palette
 
 # normals
