@@ -55,6 +55,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Map\CameraMovement.cs" />
+     <Compile Include="Assets\Scripts\Map\CollectibleRangeScript.cs" />
      <Compile Include="Assets\Scripts\Map\CollectibleSpawner.cs" />
      <Compile Include="Assets\Scripts\Map\LoadScene.cs" />
      <Compile Include="Assets\Scripts\Map\SpawnerManager.cs" />

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6020397867564327467}
   m_Layer: 10
   m_Name: Player Model
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 6020397868251579595}
   m_Layer: 10
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,9 +155,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollectiblePrefab: {fileID: 5996066095924309739, guid: 8ab53110a31f81f4c84ed9c626abaeb4,
     type: 3}
+  CollectibleType_Index: 0
+  CollectibleType:
+  - Painting
+  - Flower
+  - Trophy
+  - Shampoo
+  - File
+  - Coffee
+  - Wanted
+  CollectibleColor_Index: 0
+  CollectibleColor:
+  - White
+  - Red
+  - Blue
+  - Yellow
   WhatCanBeClickedOn:
     serializedVersion: 2
     m_Bits: 256
+  CollectibleLayer:
+    serializedVersion: 2
+    m_Bits: 2048
   BuildingTag:
     serializedVersion: 2
     m_Bits: 512

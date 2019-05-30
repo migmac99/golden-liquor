@@ -123,7 +123,9 @@ public class CollectibleSpawner : MonoBehaviour {
         InstanciatedObject = Instantiate (CollectiblePrefab);
 
         if (position == -2) {
-            InstanciatedObject.GetComponent<Collectible> ().Type (CollectibleType, color, savedPosition, savedRotation);
+            if (!Menu.Instance.HasBeenCollected (CollectibleType, color)) {
+                InstanciatedObject.GetComponent<Collectible> ().Type (CollectibleType, color, savedPosition, savedRotation);
+            }
         } else {
             InstanciatedObject.GetComponent<Collectible> ().Type (CollectibleType, color, _WaypointManager.GetComponent<WaypointManager> ().path_objs[position].transform.position, _WaypointManager.GetComponent<WaypointManager> ().path_objs[position].transform.rotation.eulerAngles);
 

@@ -22,6 +22,7 @@ public class PlayerNavigation : MonoBehaviour {
 
     [Space (20)]
     public LayerMask WhatCanBeClickedOn;
+    public LayerMask CollectibleLayer;
     public LayerMask BuildingTag;
 
     [Range (0, 1f)] public float ObjAlpha;
@@ -50,18 +51,26 @@ public class PlayerNavigation : MonoBehaviour {
         RaycastHit CameraToMouseHitInfo;
 
         #region Testing
-        if (Input.GetMouseButtonDown (1)) { //if mouse right clicked then spawn item in position
-            if (Physics.Raycast (CameraToMouseRay, out CameraToMouseHitInfo, 1000, WhatCanBeClickedOn)) {
-                GameObject InstanciatedObject;
-                InstanciatedObject = Instantiate (CollectiblePrefab);
-                InstanciatedObject.GetComponent<Collectible> ().Type (CollectibleType[CollectibleType_Index], CollectibleColor[CollectibleColor_Index], CameraToMouseHitInfo.transform.position, Vector3.zero); //.point
-            }
-        }
+        // if (Input.GetMouseButtonDown (1)) { //if mouse right clicked then spawn item in position
+        //     if (Physics.Raycast (CameraToMouseRay, out CameraToMouseHitInfo, 1000, WhatCanBeClickedOn)) {
+        //         GameObject InstanciatedObject;
+        //         InstanciatedObject = Instantiate (CollectiblePrefab);
+        //         InstanciatedObject.GetComponent<Collectible> ().Type (CollectibleType[CollectibleType_Index], CollectibleColor[CollectibleColor_Index], CameraToMouseHitInfo.transform.position, Vector3.zero); //.point
+        //     }
+        // }
         #endregion
 
         if (Input.GetMouseButtonDown (0)) { //if mouse clicked then go to mouse position
             if (Physics.Raycast (CameraToMouseRay, out CameraToMouseHitInfo, 1000, WhatCanBeClickedOn)) {
                 _navMeshAgent.SetDestination (CameraToMouseHitInfo.point);
+            }
+        }
+
+        if (Input.GetMouseButtonDown (1)) { //if mouse right clicked then try to collect item
+            if (Physics.Raycast (CameraToMouseRay, out CameraToMouseHitInfo, 1000, CollectibleLayer)) {
+                if (CameraToMouseHitInfo.collider.tag == "CollectibleRadius") {
+                    CameraToMouseHitInfo.transform.parent.gameObject.transform.parent.GetComponent<Collectible> ().AttemptCollect ();
+                }
             }
         }
 

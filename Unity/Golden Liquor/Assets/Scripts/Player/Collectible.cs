@@ -6,11 +6,13 @@ public class Collectible : MonoBehaviour {
     [Space (10)]
     [Header ("╔═══════════════[Variables]══════════════════════════════════════════════════════════════════════════════════════════")]
     [Space (10)]
-    public bool Collected = false;
+    public bool CanBeCollected = false;
     [Space (10)]
     public GameObject SelectedCollectible;
     [Space (10)]
     public GameObject[] Collectible_Type; // 7 types [Painting/Flower/Trophy/Shampoo/File/Coffee/Wanted]
+    [Space (10)]
+    public string Collectible_TypeString;
     [Space (10)]
     public int Collectible_Color; // 4 colors [White/Red/Blue/Yellow]
     [Space (10)]
@@ -30,10 +32,6 @@ public class Collectible : MonoBehaviour {
     public GameObject[] Coffee = new GameObject[4];
     [Space (10)]
     public GameObject[] Wanted = new GameObject[4];
-
-    public void Awake () {
-        Collected = false;
-    }
 
     public void Type (string type, string color, Vector3 SpawnPosition, Vector3 SpawnRotation) {
         switch (type) {
@@ -74,12 +72,23 @@ public class Collectible : MonoBehaviour {
                 Collectible_Color = 3;
                 break;
         }
+        Collectible_TypeString = type;
 
         SelectedCollectible = Instantiate (Collectible_Type[Collectible_Color], SpawnPosition, Quaternion.Euler (SpawnRotation));
         SelectedCollectible.transform.parent = gameObject.transform;
     }
 
-    void OnCollection () {
-        Menu.Instance.ItemType (Collectible_Type.ToString (), Collectible_Color, true);
+    public void AttemptCollect () {
+        if (CanBeCollected) {
+            //print (Collectible_TypeString + "   " + Collectible_Color);
+            Menu.Instance.ItemType (Collectible_TypeString, Collectible_Color, true);
+            gameObject.SetActive (false);
+        } else {
+            print ("Get closer to the object or try a new one");
+        }
+    }
+
+    public void TouchingPlayer (bool touching) {
+        CanBeCollected = touching;
     }
 }

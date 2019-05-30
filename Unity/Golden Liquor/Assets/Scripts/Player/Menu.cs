@@ -9,6 +9,9 @@ public class Menu : Singleton<Menu> {
     [Space (10)]
     bool[] Collectible_Type; // 7 types [Painting/Flower/Trophy/Shampoo/File/Coffee/Wanted]
     [Space (10)]
+    bool[] CheckerType;
+    int CheckerColor;
+    [Space (10)]
     public GameObject CurrentCamera;
     [Space (10)]
     public Vector3 CameraTransformMargins;
@@ -64,36 +67,15 @@ public class Menu : Singleton<Menu> {
     }
 
     void Update () {
-        ToggleMenu ();
         if (CurrentCamera != null) {
             HiddenPosition = CurrentCamera.transform.position + CameraTransformMargins + HiddenPositionStart;
             transform.rotation = Quaternion.Euler (CurrentCamera.transform.rotation.eulerAngles.x + CameraRotationMargins.x, CurrentCamera.transform.rotation.eulerAngles.y + CameraRotationMargins.y, CurrentCamera.transform.rotation.eulerAngles.z + CameraRotationMargins.z);
-            RefreshMenu ();
-            if (MenuState == "Hidden") {
-                transform.position = HiddenPosition;
-                overTime = overTimeStart;
+            ToggleMenu ();
+        }
 
-            } else if (MenuState == "Show") {
-                if (overTime < 1) {
-                    overTime += Time.deltaTime * MenuShowSpeed;
-                } else {
-                    MenuState = "Showing";
-                }
-                transform.position = Vector3.Lerp (HiddenPosition, CurrentCamera.transform.position + CameraTransformMargins, overTime);
-
-            } else if (MenuState == "Showing") {
-                transform.position = CurrentCamera.transform.position + CameraTransformMargins;
-                overTime = overTimeStart;
-
-            } else if (MenuState == "Hide") {
-                if (overTime < 1) {
-                    overTime += Time.deltaTime * MenuShowSpeed;
-                } else {
-                    MenuState = "Hidden";
-                }
-                transform.position = Vector3.Lerp (CurrentCamera.transform.position + CameraTransformMargins, HiddenPosition, overTime);
-            }
-
+        if (Input.GetKeyDown (KeyCode.Tab)) {
+            if ((MenuState != "Show") && (MenuState != "Hide"))
+                showMenu = !showMenu;
         }
     }
 
@@ -101,11 +83,34 @@ public class Menu : Singleton<Menu> {
         if (showMenu) {
             if (MenuState == "Hidden") {
                 MenuState = "Show";
+                RefreshMenu ();
             }
         } else {
             if (MenuState == "Showing") {
                 MenuState = "Hide";
             }
+        }
+
+        if (MenuState == "Hidden") {
+            transform.position = HiddenPosition;
+            overTime = overTimeStart;
+        } else if (MenuState == "Show") {
+            if (overTime < 1) {
+                overTime += Time.deltaTime * MenuShowSpeed;
+            } else {
+                MenuState = "Showing";
+            }
+            transform.position = Vector3.Lerp (HiddenPosition, CurrentCamera.transform.position + CameraTransformMargins, overTime);
+        } else if (MenuState == "Showing") {
+            transform.position = CurrentCamera.transform.position + CameraTransformMargins;
+            overTime = overTimeStart;
+        } else if (MenuState == "Hide") {
+            if (overTime < 1) {
+                overTime += Time.deltaTime * MenuShowSpeed;
+            } else {
+                MenuState = "Hidden";
+            }
+            transform.position = Vector3.Lerp (CurrentCamera.transform.position + CameraTransformMargins, HiddenPosition, overTime);
         }
     }
 
@@ -151,5 +156,48 @@ public class Menu : Singleton<Menu> {
                 break;
         }
         Collectible_Type[color] = collected;
+    }
+
+    public bool HasBeenCollected (string type, string color) {
+        switch (type) {
+            case "Painting":
+                CheckerType = PaintingCollected;
+                break;
+            case "Flower":
+                CheckerType = FlowerCollected;
+                break;
+            case "Trophy":
+                CheckerType = TrophyCollected;
+                break;
+            case "Shampoo":
+                CheckerType = ShampooCollected;
+                break;
+            case "File":
+                CheckerType = FileCollected;
+                break;
+            case "Coffee":
+                CheckerType = CoffeeCollected;
+                break;
+            case "Wanted":
+                CheckerType = WantedCollected;
+                break;
+        }
+
+        switch (color) {
+            case "White":
+                CheckerColor = 0;
+                break;
+            case "Red":
+                CheckerColor = 1;
+                break;
+            case "Blue":
+                CheckerColor = 2;
+                break;
+            case "Yellow":
+                CheckerColor = 3;
+                break;
+        }
+
+        return CheckerType[CheckerColor];
     }
 }
