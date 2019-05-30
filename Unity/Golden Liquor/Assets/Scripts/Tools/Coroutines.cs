@@ -22,4 +22,20 @@ public class Coroutines : Singleton<Coroutines> {
             yield return null;
         }
     }
+
+    // Lerps between two values over a set duration of time regardless of timescale
+    public IEnumerator changeValueOverTime (float fromVal, float toVal, float duration) {
+        float counter = 0f;
+
+        while (counter < duration) {
+            if (Time.timeScale == 0)
+                counter += Time.unscaledDeltaTime;
+            else
+                counter += Time.deltaTime;
+
+            float val = Mathf.Lerp (fromVal, toVal, counter / duration);
+            //Debug.Log ("Val: " + val);
+            yield return null;
+        }
+    }
 }

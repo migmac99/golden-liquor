@@ -15,6 +15,16 @@ public class Menu : Singleton<Menu> {
     [Space (10)]
     public Vector3 CameraRotationMargins;
     [Space (10)]
+    public string MenuState;
+    public float MenuShowSpeed;
+    [Space (10)]
+    public bool showMenu;
+    float overTimeStart = 0f;
+    float overTime;
+    [Space (10)]
+    public Vector3 HiddenPositionStart;
+    public Vector3 HiddenPosition;
+    [Space (10)]
     [Header ("╔═══════════════[Storage]══════════════════════════════════════════════════════════════════════════════════════════")]
     [Header ("╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════")]
     [Space (10)]
@@ -50,14 +60,52 @@ public class Menu : Singleton<Menu> {
     public GameObject[] WantedCheck = new GameObject[4];
 
     void Start () {
-
+        MenuState = "Hidden";
     }
 
     void Update () {
+        ToggleMenu ();
         if (CurrentCamera != null) {
-            transform.position = CurrentCamera.transform.position + CameraTransformMargins;
+            HiddenPosition = CurrentCamera.transform.position + CameraTransformMargins + HiddenPositionStart;
             transform.rotation = Quaternion.Euler (CurrentCamera.transform.rotation.eulerAngles.x + CameraRotationMargins.x, CurrentCamera.transform.rotation.eulerAngles.y + CameraRotationMargins.y, CurrentCamera.transform.rotation.eulerAngles.z + CameraRotationMargins.z);
             RefreshMenu ();
+            if (MenuState == "Hidden") {
+                transform.position = HiddenPosition;
+                overTime = overTimeStart;
+
+            } else if (MenuState == "Show") {
+                if (overTime < 1) {
+                    overTime += Time.deltaTime * MenuShowSpeed;
+                } else {
+                    MenuState = "Showing";
+                }
+                transform.position = Vector3.Lerp (HiddenPosition, CurrentCamera.transform.position + CameraTransformMargins, overTime);
+
+            } else if (MenuState == "Showing") {
+                transform.position = CurrentCamera.transform.position + CameraTransformMargins;
+                overTime = overTimeStart;
+
+            } else if (MenuState == "Hide") {
+                if (overTime < 1) {
+                    overTime += Time.deltaTime * MenuShowSpeed;
+                } else {
+                    MenuState = "Hidden";
+                }
+                transform.position = Vector3.Lerp (CurrentCamera.transform.position + CameraTransformMargins, HiddenPosition, overTime);
+            }
+
+        }
+    }
+
+    public void ToggleMenu () {
+        if (showMenu) {
+            if (MenuState == "Hidden") {
+                MenuState = "Show";
+            }
+        } else {
+            if (MenuState == "Showing") {
+                MenuState = "Hide";
+            }
         }
     }
 
