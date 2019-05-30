@@ -993,25 +993,15 @@ PrefabInstance:
       propertyPath: DesiredIndexPosition
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 8294403129375013233, guid: 2729bf50ff62ee340a15c776a6f8aea9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -22
-      objectReference: {fileID: 0}
-    - target: {fileID: 4756258647281540142, guid: 2729bf50ff62ee340a15c776a6f8aea9,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5731067247972633340, guid: 2729bf50ff62ee340a15c776a6f8aea9,
         type: 3}
       propertyPath: m_Name
       value: Enter
       objectReference: {fileID: 0}
-    - target: {fileID: 2674451217119180729, guid: 2729bf50ff62ee340a15c776a6f8aea9,
+    - target: {fileID: 8294403129375013233, guid: 2729bf50ff62ee340a15c776a6f8aea9,
         type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      propertyPath: m_AnchoredPosition.y
+      value: -22
       objectReference: {fileID: 0}
     - target: {fileID: 3175522777217881079, guid: 2729bf50ff62ee340a15c776a6f8aea9,
         type: 3}
@@ -1019,6 +1009,16 @@ PrefabInstance:
       value: 'Press [SPACE] to exit building
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756258647281540142, guid: 2729bf50ff62ee340a15c776a6f8aea9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674451217119180729, guid: 2729bf50ff62ee340a15c776a6f8aea9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1120229136708521541, guid: 2729bf50ff62ee340a15c776a6f8aea9,
         type: 3}

@@ -593,14 +593,14 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
-    - target: {fileID: 2674451217119180729, guid: 2729bf50ff62ee340a15c776a6f8aea9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4756258647281540142, guid: 2729bf50ff62ee340a15c776a6f8aea9,
         type: 3}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674451217119180729, guid: 2729bf50ff62ee340a15c776a6f8aea9,
+        type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

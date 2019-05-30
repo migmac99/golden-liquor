@@ -688,20 +688,10 @@ PrefabInstance:
       propertyPath: DesiredIndexPosition
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 4756258647281540142, guid: 2729bf50ff62ee340a15c776a6f8aea9,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5731067247972633340, guid: 2729bf50ff62ee340a15c776a6f8aea9,
         type: 3}
       propertyPath: m_Name
       value: Enter
-      objectReference: {fileID: 0}
-    - target: {fileID: 2674451217119180729, guid: 2729bf50ff62ee340a15c776a6f8aea9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3175522777217881079, guid: 2729bf50ff62ee340a15c776a6f8aea9,
         type: 3}
@@ -709,6 +699,16 @@ PrefabInstance:
       value: 'Press [SPACE] to exit building
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 4756258647281540142, guid: 2729bf50ff62ee340a15c776a6f8aea9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2674451217119180729, guid: 2729bf50ff62ee340a15c776a6f8aea9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2729bf50ff62ee340a15c776a6f8aea9, type: 3}

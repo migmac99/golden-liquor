@@ -30,6 +30,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Police-Station.unity
     guid: 8b7a182a3dfcfe74c9605d85df622405
   - enabled: 1
-    path: "Assets/Scenes/Caf\xE9.unity"
+    path: Assets/Scenes/Cafe.unity
     guid: 2fb1124189538bf4594f0a6fea284592
   m_configObjects: {}

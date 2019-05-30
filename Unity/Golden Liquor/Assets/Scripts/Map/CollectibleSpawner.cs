@@ -28,14 +28,14 @@ public class CollectibleSpawner : MonoBehaviour {
         if (!hasSpawned) {
             switch (SpawnerManager.Instance.hasSpawned[SpawnerManager.Instance.currentSceneID]) {
                 case false:
-                    print ("Generating Spawn in " + SpawnerManager.Instance.currentScene);
+                    // print ("Generating Spawn in " + SpawnerManager.Instance.currentScene);
                     CurrentSceneUpdate (SpawnerManager.Instance.currentSceneID);
                     MainSpawnerController (false);
                     SpawnerManager.Instance.hasSpawned[SpawnerManager.Instance.currentSceneID] = true;
                     hasSpawned = true;
                     break;
                 case true:
-                    print ("Loading Spawn in " + SpawnerManager.Instance.currentScene);
+                    //  print ("Loading Spawn in " + SpawnerManager.Instance.currentScene);
                     CurrentSceneUpdate (SpawnerManager.Instance.currentSceneID);
                     MainSpawnerController (true);
                     hasSpawned = true;
@@ -48,31 +48,24 @@ public class CollectibleSpawner : MonoBehaviour {
         switch (SceneID) {
             case 0: //Golden-Liquor
                 CollectibleType = "Flower";
-
                 break;
             case 1: //Bank
                 CollectibleType = "File";
-
                 break;
             case 2: //Barber-Shop
                 CollectibleType = "Shampoo";
-
                 break;
             case 3: //Bowling
                 CollectibleType = "Trophy";
-
                 break;
             case 4: //Hotel
                 CollectibleType = "Painting";
-
                 break;
             case 5: //Coffee Shop
                 CollectibleType = "Coffee";
-
                 break;
             case 6: //Police Station
                 CollectibleType = "Wanted";
-
                 break;
         }
     }
@@ -125,7 +118,7 @@ public class CollectibleSpawner : MonoBehaviour {
 
     void SpawnCollectible (string color, int position, Vector3 savedPosition = default (Vector3), Vector3 savedRotation = default (Vector3)) {
 
-        print ("Spawning " + color + " " + CollectibleType + " in position " + position + "    [" + savedPosition + "]" + "  with rotation  [" + savedRotation + "]");
+        //print ("Spawning " + color + " " + CollectibleType + " in position " + position + "    [" + savedPosition + "]" + "  with rotation  [" + savedRotation + "]");
         GameObject InstanciatedObject;
         InstanciatedObject = Instantiate (CollectiblePrefab);
 
@@ -155,7 +148,6 @@ public class CollectibleSpawner : MonoBehaviour {
                 SpawnerManager.Instance.CollectibleRotations[CollectibleType][3] = _WaypointManager.GetComponent<WaypointManager> ().path_objs[position].transform.rotation.eulerAngles;
             }
         }
-
         Spawned++;
     }
 

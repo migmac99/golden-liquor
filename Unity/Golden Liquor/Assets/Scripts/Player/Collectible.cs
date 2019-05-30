@@ -39,62 +39,47 @@ public class Collectible : MonoBehaviour {
         switch (type) {
             case "Painting":
                 Collectible_Type = Painting;
-
                 break;
             case "Flower":
                 Collectible_Type = Flower;
-
                 break;
             case "Trophy":
                 Collectible_Type = Trophy;
-
                 break;
             case "Shampoo":
                 Collectible_Type = Shampoo;
-
                 break;
             case "File":
                 Collectible_Type = File;
-
                 break;
             case "Coffee":
                 Collectible_Type = Coffee;
-
                 break;
             case "Wanted":
                 Collectible_Type = Wanted;
-
                 break;
         }
 
         switch (color) {
             case "White":
                 Collectible_Color = 0;
-
                 break;
             case "Red":
                 Collectible_Color = 1;
-
                 break;
             case "Blue":
                 Collectible_Color = 2;
-
                 break;
             case "Yellow":
                 Collectible_Color = 3;
-
                 break;
         }
 
-        //if (SpawnPosition != null) {
         SelectedCollectible = Instantiate (Collectible_Type[Collectible_Color], SpawnPosition, Quaternion.Euler (SpawnRotation));
         SelectedCollectible.transform.parent = gameObject.transform;
-        //}
     }
 
-    // void Update () {
-    // if (Collected) {
-    // this.GetComponent<Renderer> ().material = Point_Collected;
-    // }
-    // }
+    void OnCollection () {
+        Menu.Instance.ItemType (Collectible_Type.ToString (), Collectible_Color, true);
+    }
 }
