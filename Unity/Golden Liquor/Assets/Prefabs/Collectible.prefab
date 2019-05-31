@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5996066095924309739
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5996066095924309741}
+  - component: {fileID: 5996066095924309740}
+  m_Layer: 0
+  m_Name: Collectible
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5996066095924309741
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5996066095924309739}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5996066095924309740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5996066095924309739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a668da23a0ae88f4485001f9597a7fcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Collected: 0
+  SelectedCollectible: {fileID: 0}
+  Collectible_Type: []
+  Collectible_Color: 0
+  Painting:
+  - {fileID: 3452412617995673609, guid: 71f50693fdde3004193125e306e287c4, type: 3}
+  - {fileID: 5947544499008663499, guid: d139c64059409e84f8b58cef0ff10c02, type: 3}
+  - {fileID: 6620507896074700634, guid: 50bf9f34a0b53ab488a98624e1b54605, type: 3}
+  - {fileID: 5244299647664605008, guid: 613d78aa7aa491a4fae15a63e40fdbc7, type: 3}
+  Flower:
+  - {fileID: 2569281728339183766, guid: fe977d6f3d8721b4da67d182632cb4dc, type: 3}
+  - {fileID: 2195859238175252699, guid: dd6f9ccee4f8d5a44a0f00cd0ed67683, type: 3}
+  - {fileID: 6492258188466768232, guid: ee09b58975467c749b73a3ca9385e7ef, type: 3}
+  - {fileID: 6684326780348804056, guid: ed6967e68d61a394cb0b8c24fa83fc9c, type: 3}
+  Trophy:
+  - {fileID: 4100594155512708598, guid: ebbfc11926e5bf1438fe97833fb92c20, type: 3}
+  - {fileID: 2044742672323818928, guid: a5fb8ac8d48c2b14eb82f8bf6073e335, type: 3}
+  - {fileID: 1266447393613713469, guid: 8518fb3b1ec041d4b99a98238a021112, type: 3}
+  - {fileID: 4899332310312278604, guid: e5da56270c5e5f6459b09a4dbbe9d06e, type: 3}
+  Shampoo:
+  - {fileID: 4452529741221872518, guid: d186520fab42c1341901f4c2b96a3f24, type: 3}
+  - {fileID: 8276657322434959331, guid: 8dc7bd17272c5b044a12bca6467205be, type: 3}
+  - {fileID: 3140727447739638791, guid: 44f24b73cd5bfc84791826077dfe08fa, type: 3}
+  - {fileID: 7866419648109127789, guid: e11d2387b59167044965e5a3d1a82548, type: 3}
+  File:
+  - {fileID: 5702304242366084252, guid: c6e8352b1cbf92c4db987362ed62a5f2, type: 3}
+  - {fileID: 6568088656499204488, guid: 2ba008dbe45f5b74b81f8b6271c090b2, type: 3}
+  - {fileID: 7151163303807612752, guid: c71d42fbea463f54496420f17982a806, type: 3}
+  - {fileID: 1003090943233704358, guid: 40e947bf2dbe24d4598290091b8aba0d, type: 3}
+  Coffee:
+  - {fileID: 7358920466310778065, guid: f82f392135748cd4b8110ddad18ef59e, type: 3}
+  - {fileID: 5123366892524186839, guid: b66ae09a302860d4290e6b691cd88f54, type: 3}
+  - {fileID: 3792088885274243475, guid: 7d1fdff0f25b5204eb7a466fc699b9a5, type: 3}
+  - {fileID: 983806986823876353, guid: 67afa975cadb3d84e8e673d725011452, type: 3}
+  Wanted:
+  - {fileID: 6612418498644544346, guid: 03821d3ccee0ca24c9a48dbb67e0743d, type: 3}
+  - {fileID: 8610817313510100216, guid: b77cd198da4057e4ba5bbe0084018ad3, type: 3}
+  - {fileID: 9128624451704813191, guid: 38f780bf6a38aec4fa939b38d5d94d79, type: 3}
+  - {fileID: 3492099714213078650, guid: 11d9fa12d3ac16945a28d920f815dfcd, type: 3}

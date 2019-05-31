@@ -6,11 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Preload.unity
+    guid: 2935d69ee4e17214cb974411d51930f9
+  - enabled: 1
     path: Assets/Scenes/Golden-Liquor.unity
     guid: cd421ab7670e74e468f7f552d1f7a27d
   - enabled: 1
     path: Assets/Scenes/Bank.unity
     guid: aa9d16d5c8b446c4ba4025fc639b4c09
+  - enabled: 1
+    path: Assets/Scenes/Bank_Down.unity
+    guid: 20af5f43422585244a95dc50f2f34e0c
   - enabled: 1
     path: Assets/Scenes/Barber-Shop.unity
     guid: a2f1bbb0bda214a4d97386ce8c59326a
@@ -20,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Hotel.unity
     guid: 72b73a89f37e56e48ad8addecc146808
+  - enabled: 1
+    path: Assets/Scenes/Police-Station.unity
+    guid: 8b7a182a3dfcfe74c9605d85df622405
+  - enabled: 1
+    path: Assets/Scenes/Cafe.unity
+    guid: 2fb1124189538bf4594f0a6fea284592
   m_configObjects: {}
