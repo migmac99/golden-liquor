@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - CollectibleRadius
+  - Selection
+  - NPC
+  - NPC_Normal
   layers:
   - Default
   - TransparentFX
@@ -18,7 +21,7 @@ TagManager:
   - Building
   - Player
   - Collectibles
-  - 
+  - NPC
   - 
   - 
   - 

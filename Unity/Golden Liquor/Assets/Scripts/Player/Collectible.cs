@@ -16,9 +16,12 @@ public class Collectible : MonoBehaviour {
     [Space (10)]
     public int Collectible_Color; // 4 colors [White/Red/Blue/Yellow]
     [Space (10)]
-    [Header ("╔═══════════════[References]══════════════════════════════════════════════════════════════════════════════════════════")]
     [Header ("╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════")]
+    [Space (50)]
+    [Header ("╔═══════════════[References]══════════════════════════════════════════════════════════════════════════════════════════")]
     [Space (10)]
+    public GameObject ChatboxCanvas;
+    [Space (20)]
     public GameObject[] Painting = new GameObject[4];
     [Space (10)]
     public GameObject[] Flower = new GameObject[4];
@@ -84,7 +87,9 @@ public class Collectible : MonoBehaviour {
             Menu.Instance.ItemType (Collectible_TypeString, Collectible_Color, true);
             gameObject.SetActive (false);
         } else {
-            print ("Get closer to the object or try a new one");
+            ChatboxCanvas.GetComponent<ChatBox> ().TextContent = "GET CLOSER OR TRY SOMETHING ELSE";
+            ChatboxCanvas.GetComponent<ChatBox> ().Show ();
+            StartCoroutine (Coroutines.Instance.Countdown (Menu.Instance.ChatBox_Time, () => { ChatboxCanvas.GetComponent<ChatBox> ().Show (false); }));
         }
     }
 

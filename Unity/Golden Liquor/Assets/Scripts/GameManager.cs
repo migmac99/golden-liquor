@@ -1,12 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager> {
 
+    public bool StartInMenu;
+
     protected virtual void Start () {
-        SceneManager.LoadScene ("Golden-Liquor");
+        if (StartInMenu) {
+            SceneManager.LoadScene ("StartMenu");
+        } else {
+            SceneManager.LoadScene ("Golden-Liquor");
+        }
     }
 }
