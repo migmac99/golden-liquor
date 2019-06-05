@@ -7,6 +7,8 @@ public class Menu : Singleton<Menu> {
     [Space (10)]
     [Header ("╔═══════════════[Variables]══════════════════════════════════════════════════════════════════════════════════════════")]
     [Space (10)]
+    [Range (0f, 5f)] public float ChatBox_Time;
+    [Space (20)]
     bool[] Collectible_Type; // 7 types [Painting/Flower/Trophy/Shampoo/File/Coffee/Wanted]
     [Space (10)]
     bool[] CheckerType;
@@ -28,8 +30,15 @@ public class Menu : Singleton<Menu> {
     public Vector3 HiddenPositionStart;
     public Vector3 HiddenPosition;
     [Space (10)]
-    [Header ("╔═══════════════[Storage]══════════════════════════════════════════════════════════════════════════════════════════")]
+    public GameObject CurrentBorder;
+    public GameObject OldBorder;
+    [Space (10)]
+    public string SelectedType;
+    public string SelectedColor;
+    [Space (10)]
     [Header ("╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════")]
+    [Space (50)]
+    [Header ("╔═══════════════[Storage]══════════════════════════════════════════════════════════════════════════════════════════")]
     [Space (10)]
     public bool[] FlowerCollected = new bool[4];
     [Space (10)]
@@ -44,10 +53,15 @@ public class Menu : Singleton<Menu> {
     public bool[] CoffeeCollected = new bool[4];
     [Space (10)]
     public bool[] WantedCollected = new bool[4];
+    [Space (20)]
+    public bool[] Tattoo = new bool[3];
     [Space (10)]
-    [Header ("╔═══════════════[References]══════════════════════════════════════════════════════════════════════════════════════════")]
     [Header ("╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════")]
+    [Space (50)]
+    [Header ("╔═══════════════[References]══════════════════════════════════════════════════════════════════════════════════════════")]
     [Space (10)]
+    public GameObject ChatboxCanvas;
+    [Space (20)]
     public GameObject[] FlowerCheck = new GameObject[4];
     [Space (10)]
     public GameObject[] FileCheck = new GameObject[4];
@@ -61,9 +75,26 @@ public class Menu : Singleton<Menu> {
     public GameObject[] CoffeeCheck = new GameObject[4];
     [Space (10)]
     public GameObject[] WantedCheck = new GameObject[4];
+    [Space (20)]
+    public GameObject[] Tattoos = new GameObject[3];
+    [Space (10)]
+    [Header ("╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════")]
+    [Space (50)]
+    [Header ("╔═══════════════[NPC]══════════════════════════════════════════════════════════════════════════════════════════")]
+    [Space (10)]
+    public string[] ManagerItemType = new string[3];
+    [Space (10)]
+    public string[] ManagerItemColor = new string[3];
+    [Space (10)]
+    public string[] SpeakeasyBuilding = new string[3];
+
+    private string BuildingName;
 
     void Start () {
         MenuState = "Hidden";
+        for (int i = 0; i < 3; i++) {
+            GenerateSpeakeasy (Random.Range (0, 6), i);
+        }
     }
 
     void Update () {
@@ -73,21 +104,27 @@ public class Menu : Singleton<Menu> {
             ToggleMenu ();
         }
 
-        if (Input.GetKeyDown (KeyCode.Tab)) {
-            if ((MenuState != "Show") && (MenuState != "Hide"))
-                showMenu = !showMenu;
-        }
+        if (Input.GetKey (KeyCode.Tab)) {
+            if ((SceneManager.GetActiveScene ().name != "StartMenu") && (SceneManager.GetActiveScene ().name != "GameOverLose") && (SceneManager.GetActiveScene ().name != "GameOverWin") && (SceneManager.GetActiveScene ().name != "Preload")) {
+                showMenu = true;
+            }
+        } else { showMenu = false; }
+
     }
 
     public void ToggleMenu () {
         if (showMenu) {
             if (MenuState == "Hidden") {
                 MenuState = "Show";
+                transform.position = HiddenPosition;
+                overTime = overTimeStart;
                 RefreshMenu ();
             }
         } else {
             if (MenuState == "Showing") {
                 MenuState = "Hide";
+                transform.position = CurrentCamera.transform.position + CameraTransformMargins;
+                overTime = overTimeStart;
             }
         }
 
@@ -111,6 +148,42 @@ public class Menu : Singleton<Menu> {
                 MenuState = "Hidden";
             }
             transform.position = Vector3.Lerp (CurrentCamera.transform.position + CameraTransformMargins, HiddenPosition, overTime);
+
+            if (CurrentBorder != null) {
+                CurrentBorder.SetActive (false);
+            }
+            if (OldBorder != null) {
+                OldBorder.SetActive (false);
+            }
+            SelectedColor = "";
+            SelectedType = "";
+        }
+
+        if (MenuState == "Selecting") {
+            transform.position = CurrentCamera.transform.position + CameraTransformMargins;
+            RefreshMenu ();
+
+            if ((Input.GetKey (KeyCode.Escape)) || (Input.GetKey (KeyCode.Tab))) {
+                MenuState = "Hide";
+            }
+
+            Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast (ray, out hit)) {
+                if (hit.collider.gameObject.tag == "Selection") {
+                    if (CurrentBorder != null) {
+                        OldBorder = CurrentBorder;
+                        OldBorder.SetActive (false);
+
+                        SelectedColor = hit.collider.gameObject.name;
+                        SelectedType = hit.collider.gameObject.transform.parent.name;
+                    }
+                    CurrentBorder = hit.collider.gameObject.transform.Find ("Hover").gameObject;
+                    CurrentBorder.SetActive (true);
+                }
+            }
+            Debug.DrawRay (ray.origin, ray.direction * 1000, Color.blue);
         }
     }
 
@@ -124,6 +197,10 @@ public class Menu : Singleton<Menu> {
             FlowerCheck[i].SetActive (FlowerCollected[i]);
             CoffeeCheck[i].SetActive (CoffeeCollected[i]);
             WantedCheck[i].SetActive (WantedCollected[i]);
+
+            if (i < 3) {
+                Tattoos[i].SetActive (Tattoo[i]);
+            }
         }
     }
 
@@ -199,5 +276,94 @@ public class Menu : Singleton<Menu> {
         }
 
         return CheckerType[CheckerColor];
+    }
+
+    public void GenerateSpeakeasy (int Building, int SpeakeasyID) {
+        switch (Building) {
+            case 0:
+                BuildingName = "Bank";
+                break;
+            case 1:
+                BuildingName = "Barber-Shop";
+                break;
+            case 2:
+                BuildingName = "Bowling";
+                break;
+            case 3:
+                BuildingName = "Hotel";
+                break;
+            case 4:
+                BuildingName = "Cafe";
+                break;
+            case 5:
+                BuildingName = "Police-Station";
+                break;
+        }
+
+        if ((SpeakeasyBuilding[0] != BuildingName) && (SpeakeasyBuilding[1] != BuildingName) && (SpeakeasyBuilding[2] != BuildingName)) {
+            GenerateManagerLock (SpeakeasyID, Random.Range (0, 7));
+            SpeakeasyBuilding[SpeakeasyID] = BuildingName;
+            BuildingName = "";
+        } else {
+            GenerateSpeakeasy (Random.Range (0, 6), SpeakeasyID);
+            BuildingName = "";
+        }
+    }
+
+    void GenerateManagerLock (int SpeakeasyID, int RandomItem, string RandomItemType = "") {
+        switch (RandomItem) {
+            case 0:
+                RandomItemType = "Painting";
+                break;
+            case 1:
+                RandomItemType = "Flower";
+                break;
+            case 2:
+                RandomItemType = "Trophy";
+                break;
+            case 3:
+                RandomItemType = "Shampoo";
+                break;
+            case 4:
+                RandomItemType = "File";
+                break;
+            case 5:
+                RandomItemType = "Coffee";
+                break;
+            case 6:
+                RandomItemType = "Wanted";
+                break;
+        }
+
+        if ((ManagerItemType[0] != RandomItemType) && (ManagerItemType[1] != RandomItemType) && (ManagerItemType[2] != RandomItemType)) {
+            ManagerItemType[SpeakeasyID] = RandomItemType;
+            ManagerItemColor[SpeakeasyID] = GenerateRandomColor ();
+        } else {
+            GenerateManagerLock (SpeakeasyID, Random.Range (0, 7));
+        }
+    }
+
+    string GenerateRandomColor () {
+        string GeneratedColor = "White";
+        int GeneratedColorID;
+
+        GeneratedColorID = Random.Range (0, 4);
+
+        switch (GeneratedColorID) {
+            case 0:
+                GeneratedColor = "White";
+                break;
+            case 1:
+                GeneratedColor = "Red";
+                break;
+            case 2:
+                GeneratedColor = "Blue";
+                break;
+            case 3:
+                GeneratedColor = "Yellow";
+                break;
+        }
+
+        return GeneratedColor;
     }
 }

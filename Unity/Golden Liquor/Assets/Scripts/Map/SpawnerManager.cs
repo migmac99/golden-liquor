@@ -13,14 +13,16 @@ public class SpawnerManager : Singleton<SpawnerManager> {
     [Space (10)]
     public string currentScene;
     [Space (10)]
-    [Header ("╔═══════════════[Stored Positions]══════════════════════════════════════════════════════════════════════════════════════════")]
     [Header ("╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════")]
+    [Space (50)]
+    [Header ("╔═══════════════[Stored Positions]══════════════════════════════════════════════════════════════════════════════════════════")]
     [Space (10)]
     public Dictionary<string, Vector3[]> CollectiblePositions = new Dictionary<string, Vector3[]> () { { "Painting", new Vector3[4] }, { "Flower", new Vector3[4] }, { "Trophy", new Vector3[4] }, { "Shampoo", new Vector3[4] }, { "File", new Vector3[4] }, { "Coffee", new Vector3[4] }, { "Wanted", new Vector3[4] }, };
     public Dictionary<string, Vector3[]> CollectibleRotations = new Dictionary<string, Vector3[]> () { { "Painting", new Vector3[4] }, { "Flower", new Vector3[4] }, { "Trophy", new Vector3[4] }, { "Shampoo", new Vector3[4] }, { "File", new Vector3[4] }, { "Coffee", new Vector3[4] }, { "Wanted", new Vector3[4] }, };
     [Space (10)]
-    [Header ("╔═══════════════[Check Dictionary]══════════════════════════════════════════════════════════════════════════════════════════")]
     [Header ("╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════")]
+    [Space (50)]
+    [Header ("╔═══════════════[Check Dictionary]══════════════════════════════════════════════════════════════════════════════════════════")]
     [Space (10)]
     public bool CheckDictionaryNow = false;
 

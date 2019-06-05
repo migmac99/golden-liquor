@@ -8,12 +8,6 @@ using UnityEngine.AI;
 public class PlayerNavigation : MonoBehaviour {
     public GameObject CollectiblePrefab;
 
-    // [Header ("[Painting/Flower/Trophy/Shampoo/File/Coffee/Wanted]")]
-    // public String CollectibleType = "Flower";
-
-    // [Header ("[White/Red/Blue/Yellow]")]
-    // public String CollectibleColor = "Red";
-
     [HideInInspector] public int CollectibleType_Index = 0;
     [HideInInspector] public string[] CollectibleType = new string[] { "Painting", "Flower", "Trophy", "Shampoo", "File", "Coffee", "Wanted" };
 
@@ -31,8 +25,16 @@ public class PlayerNavigation : MonoBehaviour {
     public GameObject PlayerToCamera_Object;
 
     private NavMeshAgent _navMeshAgent;
+    private Animator PlayerAnimator;
+
+    [Space (10)]
+
+    public GameObject PlayerChild;
+    [Range (0, 10f)] public float MinSpeedForMovement;
 
     void Start () {
+        PlayerAnimator = PlayerChild.GetComponent<Animator> ();
+
         Physics.IgnoreLayerCollision (10, 8);
         _navMeshAgent = GetComponent<NavMeshAgent> ();
 
@@ -50,17 +52,22 @@ public class PlayerNavigation : MonoBehaviour {
         Ray CameraToMouseRay = Camera.main.ScreenPointToRay (Input.mousePosition);
         RaycastHit CameraToMouseHitInfo;
 
-        #region Testing
-        // if (Input.GetMouseButtonDown (1)) { //if mouse right clicked then spawn item in position
-        //     if (Physics.Raycast (CameraToMouseRay, out CameraToMouseHitInfo, 1000, WhatCanBeClickedOn)) {
-        //         GameObject InstanciatedObject;
-        //         InstanciatedObject = Instantiate (CollectiblePrefab);
-        //         InstanciatedObject.GetComponent<Collectible> ().Type (CollectibleType[CollectibleType_Index], CollectibleColor[CollectibleColor_Index], CameraToMouseHitInfo.transform.position, Vector3.zero); //.point
-        //     }
-        // }
+        #region Animation
+        if (_navMeshAgent.velocity.magnitude >= MinSpeedForMovement) {
+            PlayerAnimator.SetBool ("moving", true);
+        } else {
+            PlayerAnimator.SetBool ("moving", false);
+
+            if (Physics.Raycast (CameraToMouseRay, out CameraToMouseHitInfo, 1000, WhatCanBeClickedOn)) {
+                Vector3 targetPostition = new Vector3 (CameraToMouseHitInfo.point.x, this.transform.position.y, CameraToMouseHitInfo.point.z); //limits rotation to y axis
+
+                transform.LookAt (targetPostition);
+            }
+        }
+
         #endregion
 
-        if (Input.GetMouseButtonDown (0)) { //if mouse clicked then go to mouse position
+        if ((Input.GetMouseButtonDown (0)) && (Menu.Instance.MenuState != "Selecting")) { //if mouse clicked then go to mouse position
             if (Physics.Raycast (CameraToMouseRay, out CameraToMouseHitInfo, 1000, WhatCanBeClickedOn)) {
                 _navMeshAgent.SetDestination (CameraToMouseHitInfo.point);
             }
@@ -69,7 +76,9 @@ public class PlayerNavigation : MonoBehaviour {
         if (Input.GetMouseButtonDown (1)) { //if mouse right clicked then try to collect item
             if (Physics.Raycast (CameraToMouseRay, out CameraToMouseHitInfo, 1000, CollectibleLayer)) {
                 if (CameraToMouseHitInfo.collider.tag == "CollectibleRadius") {
-                    CameraToMouseHitInfo.transform.parent.gameObject.transform.parent.GetComponent<Collectible> ().AttemptCollect ();
+                    if (CameraToMouseHitInfo.transform.parent.tag != "NPC") {
+                        CameraToMouseHitInfo.transform.parent.gameObject.transform.parent.GetComponent<Collectible> ().AttemptCollect ();
+                    }
                 }
             }
         }

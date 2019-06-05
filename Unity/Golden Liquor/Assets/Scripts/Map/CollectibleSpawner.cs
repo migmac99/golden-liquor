@@ -11,8 +11,9 @@ public class CollectibleSpawner : MonoBehaviour {
     [Space (10)]
     public GameObject CollectiblePrefab;
     [Space (10)]
-    [Header ("╔═══════════════[Variables]══════════════════════════════════════════════════════════════════════════════════════════")]
     [Header ("╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════")]
+    [Space (50)]
+    [Header ("╔═══════════════[Variables]══════════════════════════════════════════════════════════════════════════════════════════")]
     [Space (10)]
     public int CurrentWaypointID;
     public int ColorID;

@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Preload.unity
     guid: 2935d69ee4e17214cb974411d51930f9
   - enabled: 1
+    path: Assets/Scenes/StartMenu.unity
+    guid: 83f5a5ff8b3f71b45a8853ed85ad1722
+  - enabled: 1
     path: Assets/Scenes/Golden-Liquor.unity
     guid: cd421ab7670e74e468f7f552d1f7a27d
   - enabled: 1
@@ -32,4 +35,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cafe.unity
     guid: 2fb1124189538bf4594f0a6fea284592
+  - enabled: 1
+    path: Assets/Scenes/SpeakEasy_1.unity
+    guid: cccb85baad49fb544971e5fbf46ccc8b
+  - enabled: 1
+    path: Assets/Scenes/SpeakEasy_2.unity
+    guid: 81b091b9f9fd67b45a25583f60d69719
+  - enabled: 1
+    path: Assets/Scenes/SpeakEasy_0.unity
+    guid: 9568c12be38741e469dfacf8a8cfa4fe
+  - enabled: 1
+    path: Assets/Scenes/GameOverWin.unity
+    guid: 3f66315410ab0ca47b7dce6ca9d786ee
+  - enabled: 1
+    path: Assets/Scenes/GameOverLose.unity
+    guid: fb5d1d723edaff94b895bcf3e081b0ba
   m_configObjects: {}

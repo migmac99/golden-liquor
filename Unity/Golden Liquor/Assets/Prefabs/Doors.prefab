@@ -150,6 +150,8 @@ MonoBehaviour:
   Door_R: {fileID: 2934820025413690880}
   Panel: {fileID: 1554939639090052541}
   TriggerText: {fileID: 5731067247972633340}
+  DesiredIndexPosition: 0
+  UseDesiredPosition: 0
 --- !u!65 &2163856855431751580
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -347,7 +349,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 353a347d84f67884fa294359225f30b2, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -359,9 +361,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Press [SPACE] to exit building
-
-'
+  m_Text: PRESS SPACE TO EXIT BUILDING
 --- !u!1 &5731067247972633340
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,7 +428,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 353a347d84f67884fa294359225f30b2, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -440,7 +440,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Press [SPACE] to enter building
+  m_Text: 'PRESS SPACE TO ENTER BUILDING
 
 '
 --- !u!1001 &2757587054701000832
