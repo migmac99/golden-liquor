@@ -11,25 +11,51 @@ public class StartMenu : MonoBehaviour {
     public GameObject Help;
     public GameObject Exit;
     public GameObject _Menu;
+    [Space (10)]
+    public GameObject CurrentBorder;
+    public GameObject OldBorder;
+    public bool StarterBorder;
 
-    //void OnCollisionEnter (Collision other) {
+    void Start () {
+        StarterBorder = true;
+        //CurrentBorder = gameObject.transform.Find ("Play").gameObject.transform.parent.gameObject.transform.Find ("Hover").gameObject;
+        CurrentBorder = Play.gameObject.transform.parent.gameObject.transform.Find ("Hover").gameObject;
+        CurrentBorder.SetActive (true);
+    }
+
     void Update () {
         Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
         RaycastHit hit;
-        if (Input.GetMouseButtonDown (0)) {
 
-            if (Physics.Raycast (ray, out hit)) {
+        if (Input.GetKeyDown (KeyCode.Space)) {
+            if ((CurrentBorder.transform.parent.gameObject.transform.Find ("Play"))) {
+                LoadingController.GetComponent<LoadScene> ().LoadLevel ("Golden-Liquor");
+                ResetVariables ();
+            }
+        }
 
-                if (hit.collider.gameObject == Play) {
+        if (Physics.Raycast (ray, out hit)) {
+            if ((Input.GetKeyDown (KeyCode.Space)) || (Input.GetMouseButtonDown (0))) {
+                if ((CurrentBorder.transform.parent.gameObject.transform.Find ("Play"))) {
                     LoadingController.GetComponent<LoadScene> ().LoadLevel ("Golden-Liquor");
                     ResetVariables ();
-                } else if (hit.collider.gameObject == Help) {
+                } else if (CurrentBorder.transform.parent.gameObject.transform.Find ("Help")) {
                     LoadingController.GetComponent<LoadScene> ().LoadLevel ("Help");
-                } else if (hit.collider.gameObject == Exit) {
+                } else if (CurrentBorder.transform.parent.gameObject.transform.Find ("Exit")) {
                     Application.Quit ();
-                } else if (hit.collider.gameObject == _Menu) {
+                } else if (CurrentBorder.transform.parent.gameObject.transform.Find ("Menu")) {
                     LoadingController.GetComponent<LoadScene> ().LoadLevel ("StartMenu");
                 }
+            }
+
+            if (hit.collider.gameObject.tag == "Selection") {
+                if (CurrentBorder != null) {
+                    OldBorder = CurrentBorder;
+                    OldBorder.SetActive (false);
+                }
+                CurrentBorder = hit.collider.gameObject.transform.parent.gameObject.transform.Find ("Hover").gameObject;
+                StarterBorder = false;
+                CurrentBorder.SetActive (true);
             }
         }
         Debug.DrawRay (ray.origin, ray.direction * 1000, Color.red);

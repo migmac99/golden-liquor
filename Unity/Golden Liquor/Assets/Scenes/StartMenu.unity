@@ -389,6 +389,71 @@ PrefabInstance:
       propertyPath: LoadingController
       value: 
       objectReference: {fileID: 1242375860}
+    - target: {fileID: 7852527406943746395, guid: b2b37dd7f471c6e4ca6486e597dc4b25,
+        type: 3}
+      propertyPath: m_TagString
+      value: Selection
+      objectReference: {fileID: 0}
+    - target: {fileID: 7852527406943746395, guid: b2b37dd7f471c6e4ca6486e597dc4b25,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331141794679599264, guid: b2b37dd7f471c6e4ca6486e597dc4b25,
+        type: 3}
+      propertyPath: m_TagString
+      value: Selection
+      objectReference: {fileID: 0}
+    - target: {fileID: 6740151395051863887, guid: b2b37dd7f471c6e4ca6486e597dc4b25,
+        type: 3}
+      propertyPath: m_TagString
+      value: Selection
+      objectReference: {fileID: 0}
+    - target: {fileID: 6740151395051863885, guid: b2b37dd7f471c6e4ca6486e597dc4b25,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 7852527406943746393, guid: b2b37dd7f471c6e4ca6486e597dc4b25,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 8331141794679599266, guid: b2b37dd7f471c6e4ca6486e597dc4b25,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492051744510218472, guid: b2b37dd7f471c6e4ca6486e597dc4b25,
+        type: 3}
+      propertyPath: m_Name
+      value: Hover
+      objectReference: {fileID: 0}
+    - target: {fileID: 5492051744510218472, guid: b2b37dd7f471c6e4ca6486e597dc4b25,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087701823881014337, guid: b2b37dd7f471c6e4ca6486e597dc4b25,
+        type: 3}
+      propertyPath: m_Name
+      value: Hover
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087701823881014337, guid: b2b37dd7f471c6e4ca6486e597dc4b25,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2271161640221297800, guid: b2b37dd7f471c6e4ca6486e597dc4b25,
+        type: 3}
+      propertyPath: m_Name
+      value: Hover
+      objectReference: {fileID: 0}
+    - target: {fileID: 2271161640221297800, guid: b2b37dd7f471c6e4ca6486e597dc4b25,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2b37dd7f471c6e4ca6486e597dc4b25, type: 3}
 --- !u!1 &1460408744
