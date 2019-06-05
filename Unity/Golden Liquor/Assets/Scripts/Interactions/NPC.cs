@@ -29,7 +29,7 @@ public class NPC : MonoBehaviour {
 
         if ((NPC_Type == "Manager") || (NPC_Type == "Tattooer")) {
             NPCS = GameObject.FindGameObjectsWithTag ("NPC_Normal");
-            if (NPC_Type == "Manager") {
+            if ((NPC_Type == "Manager") && (ManagerID != -1)) {
                 GenerateValidNPC (true);
                 GenerateValidNPC (false);
             }

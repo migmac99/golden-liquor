@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3abb4b0ba6bc7d448bea52e37bbf48dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartInMenu: 1
+  StartScene: Help
 --- !u!4 &980233581
 Transform:
   m_ObjectHideFlags: 0

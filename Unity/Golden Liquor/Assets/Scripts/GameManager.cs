@@ -5,13 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager> {
 
-    public bool StartInMenu;
+    public string StartScene;
 
     protected virtual void Start () {
-        if (StartInMenu) {
-            SceneManager.LoadScene ("StartMenu");
-        } else {
-            SceneManager.LoadScene ("Golden-Liquor");
-        }
+        SceneManager.LoadScene (StartScene);
     }
 }

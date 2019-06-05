@@ -27,7 +27,7 @@ public class StartMenu : MonoBehaviour {
         Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
         RaycastHit hit;
 
-        if (Input.GetKeyDown (KeyCode.Space)) {
+        if ((Input.GetKeyDown (KeyCode.Space)) && (StarterBorder)) {
             if ((CurrentBorder.transform.parent.gameObject.transform.Find ("Play"))) {
                 LoadingController.GetComponent<LoadScene> ().LoadLevel ("Golden-Liquor");
                 ResetVariables ();
@@ -65,6 +65,8 @@ public class StartMenu : MonoBehaviour {
         ///////////////////////////////////////////////////
         ////////////////////StartMenu//////////////////////
         ///////////////////////////////////////////////////
+        //Cutscene
+        Menu.Instance.CutsceneHasPlayed = false;
         //Storage
         Menu.Instance.FlowerCollected = new bool[4];
         Menu.Instance.FileCollected = new bool[4];

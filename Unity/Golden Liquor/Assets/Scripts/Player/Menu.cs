@@ -36,6 +36,8 @@ public class Menu : Singleton<Menu> {
     public string SelectedType;
     public string SelectedColor;
     [Space (10)]
+    public bool CutsceneHasPlayed = false;
+    [Space (10)]
     [Header ("╚═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════")]
     [Space (50)]
     [Header ("╔═══════════════[Storage]══════════════════════════════════════════════════════════════════════════════════════════")]
