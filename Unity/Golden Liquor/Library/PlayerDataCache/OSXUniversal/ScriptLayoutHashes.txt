@@ -1,9 +1,10 @@
 OSXUniversal
 PlayerPath?
-C:/Users/Migmac/Desktop/Golden-Liquor/Mac.app
+C:/Users/Migmac/Desktop/GoldenLiquor/Win.app
 SceneListBegin?
 Assets/Scenes/Preload.unity
 Assets/Scenes/StartMenu.unity
+Assets/Scenes/Help.unity
 Assets/Scenes/Golden-Liquor.unity
 Assets/Scenes/Bank.unity
 Assets/Scenes/Bank_Down.unity
@@ -36,7 +37,7 @@ e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.P
 79e4107f527fc77a5ebbadb75bee9ea0 Assembly-CSharp.dll:.SpawnerManager
 e7a73f5f78ba6445195ec23b74a1ce2d Unity.TextMeshPro.dll:TMPro.TMP_ScrollbarEventHandler
 c98b5d0616c6d2b2d663f92d0ee6beb3 Assembly-CSharp.dll:.ChatBox
-eb27d243721dee31e4a616e08ea6c9a0 Assembly-CSharp.dll:.StartMenu
+d213f2cadecf0f16e1124fe0a22ac49e Assembly-CSharp.dll:.StartMenu
 cf9f5cf2c3145a37ac07f00e50e460f9 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 5fc094978ce3e3591a7500ed380d854a UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -134,14 +135,15 @@ d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.Spa
 303ad70ce203ad874efe2965d0fbcff9 Unity.Analytics.Tracker.dll:UnityEngine.Analytics.AnalyticsEventTracker
 7fb9de8dcf73854b6b328eca1f7a6e6d Unity.Analytics.Tracker.dll:UnityEngine.Analytics.AnalyticsTracker
 0e36e56aacdcaa407216e201bbda8035 Assembly-CSharp.dll:.SwitchScene
-7c4d61ba679beaa5d71821c8c9d31078 Assembly-CSharp.dll:.CameraMovement
+885e3f7ae12c37ecb9ae8fa9949287e4 Assembly-CSharp.dll:.CameraMovement
 94017dcc9f00fe671ea7dc427b4da011 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
 b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 543ca2e59b5375a4411aa2030f7d619b Assembly-CSharp.dll:.Rotate
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.Analytics.Editor.dll:UnityEditor.Analytics.AnalyticsEventTrackerEditor
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.TextMeshPro.dll:TMPro.TMP_SpriteAnimator
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.Coroutines
-76821ba0979d761af4629ecde7656163 Assembly-CSharp.dll:.Menu
+ac0d2540a94e62aab2fb4087ed20ad0a Assembly-CSharp.dll:.FollowPath
+7eacd06a3d38b473c58274a956717e5d Assembly-CSharp.dll:.Menu
 4fd8bf02e3089425d3502e26c44ba31a Unity.TextMeshPro.dll:TMPro.TextContainer
 a24e3f5a543a052299802e24cdb1eecd Assembly-CSharp.dll:.NPC
 d6fc18c60e6c3cac8fa44b1090be74a3 Assembly-CSharp.dll:.GoldenLiquor
@@ -174,7 +176,7 @@ d0bd3cc9e54f58b9bcb90be6582d9e8d Assembly-CSharp.dll:.WaypointManager
 fb6a1ea36b4f6ef5948d283d93760765 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 5b0391b7e3d9ea9db6c0a8fbd0ca23f6 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSoundfieldExtension
 5b0391b7e3d9ea9db6c0a8fbd0ca23f6 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSourceExtension
-aed2336cfedaa0a0dbfb5b428496b0b8 Assembly-CSharp.dll:.GameManager
+e4d4dddbe1ea487b64e6f94c589445b5 Assembly-CSharp.dll:.GameManager
 931f489e44eadf809e9310429c99dde5 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioListenerExtension
 fb6a1ea36b4f6ef5948d283d93760765 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 5b0391b7e3d9ea9db6c0a8fbd0ca23f6 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSoundfieldExtension
@@ -189,3 +191,4 @@ d791aa6007fa3640be1164ea75bb087d Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 c6666661329916e218bee7f5e79e60f5 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 3165968ba45c74472d279ba04455fccb Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
+6395081719b5407cbef1557fe61e47d2 Assembly-CSharp.dll:.Tutorial

@@ -27,14 +27,6 @@ public class NPC : MonoBehaviour {
         Chat = ChatboxCanvas.GetComponent<ChatBox> ();
         _Animator = GetComponent<Animator> ();
 
-        if ((NPC_Type == "Manager") || (NPC_Type == "Tattooer")) {
-            NPCS = GameObject.FindGameObjectsWithTag ("NPC_Normal");
-            if ((NPC_Type == "Manager") && (ManagerID != -1)) {
-                GenerateValidNPC (true);
-                GenerateValidNPC (false);
-            }
-        }
-
         for (int i = 0; i < 3; i++) {
             if (SceneManager.GetActiveScene ().name == Menu.Instance.SpeakeasyBuilding[i]) {
                 ManagerID = i;
@@ -43,6 +35,14 @@ public class NPC : MonoBehaviour {
                     ManagerID = i;
                     Doors.GetComponent<SwitchScene> ().DesiredScene = Menu.Instance.SpeakeasyBuilding[i];
                 }
+            }
+        }
+
+        if ((NPC_Type == "Manager") || (NPC_Type == "Tattooer")) {
+            NPCS = GameObject.FindGameObjectsWithTag ("NPC_Normal");
+            if ((NPC_Type == "Manager") && (ManagerID != -1)) {
+                GenerateValidNPC (true);
+                GenerateValidNPC (false);
             }
         }
     }
@@ -87,7 +87,19 @@ public class NPC : MonoBehaviour {
                         }));
                     }));
                 } else {
-                    Chat.TextContent = "HI!";
+                    int RandomEntryManager = Random.Range (0, 3);
+
+                    switch (RandomEntryManager) {
+                        case 0:
+                            Chat.TextContent = "WELCOME";
+                            break;
+                        case 1:
+                            Chat.TextContent = "DO YOU NEED ANYTHING?";
+                            break;
+                        case 2:
+                            Chat.TextContent = "WHAT CAN I HELP YOU WITH?";
+                            break;
+                    }
                 }
                 break;
             case "Tattooer":
@@ -95,17 +107,167 @@ public class NPC : MonoBehaviour {
                     Chat.TextContent = "YOU JUST GOT A NEW MARK!";
                     Menu.Instance.Tattoo[ManagerID] = true;
                 } else {
-                    Chat.TextContent = "I ALREADY GAVE YOU THIS MARK!";
+                    int RandomEntryTattoer = Random.Range (0, 3);
+
+                    switch (RandomEntryTattoer) {
+                        case 0:
+                            Chat.TextContent = "I ALREADY GAVE YOU THIS MARK!";
+                            break;
+                        case 1:
+                            Chat.TextContent = "DONT PUSH IT!";
+                            break;
+                        case 2:
+                            Chat.TextContent = "STOP INSISTING!";
+                            break;
+                    }
                 }
                 break;
             case "Normal":
-                Chat.TextContent = "HELLO";
+                int RandomEntryNormal = Random.Range (0, 6);
+
+                switch (RandomEntryNormal) {
+                    case 0:
+                        Chat.TextContent = "HELLO";
+                        break;
+                    case 1:
+                        Chat.TextContent = "WHAT A NICE DAY";
+                        break;
+                    case 2:
+                        Chat.TextContent = "YES?";
+                        break;
+                    case 3:
+                        Chat.TextContent = "WHAT DO YOU WANT?";
+                        break;
+                    case 4:
+                        Chat.TextContent = "LOVELY";
+                        break;
+                    case 5:
+                        Chat.TextContent = "INTERESTING...";
+                        break;
+                }
                 break;
             case "Type":
-                Chat.TextContent = "WHAT A UNIQUE " + Menu.Instance.ManagerItemType[ManagerID].ToUpper () + "!";
+                switch (Menu.Instance.ManagerItemType[ManagerID]) {
+                    case "Painting":
+                        int RandomEntryPainting = Random.Range (0, 3);
+                        switch (RandomEntryPainting) {
+                            case 0:
+                                Chat.TextContent = "I TEND TO APPRECIATE MODERN ART";
+                                break;
+                            case 1:
+                                Chat.TextContent = "THE HOTEL'S ART COLLECTION IS AMAZING";
+                                break;
+                            case 2:
+                                Chat.TextContent = "I REALLY GET LOST WHEN I LOOK AT SOME PAINTINGS";
+                                break;
+                        }
+                        break;
+
+                    case "Flower":
+                        int RandomEntryFlower = Random.Range (0, 3);
+                        switch (RandomEntryFlower) {
+                            case 0:
+                                Chat.TextContent = "THE SMELL OF FLOWERS REALLY MAKES ME HAPPY";
+                                break;
+                            case 1:
+                                Chat.TextContent = "FLOWERS ARE WAY MORE IMPORTANT THAN PEOPLE THING";
+                                break;
+                            case 2:
+                                Chat.TextContent = "I NEED TO BUY FLOWERS FOR MY WIFE";
+                                break;
+                        }
+                        break;
+
+                    case "Trophy":
+                        int RandomEntryTrophy = Random.Range (0, 3);
+                        switch (RandomEntryTrophy) {
+                            case 0:
+                                Chat.TextContent = "THE BOWLING'S TROPHY COLLECTION IS AMAZING";
+                                break;
+                            case 1:
+                                Chat.TextContent = "WINNING A TROPHY MUST FEEL NICE";
+                                break;
+                            case 2:
+                                Chat.TextContent = "I HEARD THAT THE MANAGER LOVES TROPHIES";
+                                break;
+                        }
+                        break;
+
+                    case "Shampoo":
+                        int RandomEntryShampoo = Random.Range (0, 3);
+                        switch (RandomEntryShampoo) {
+                            case 0:
+                                Chat.TextContent = "I COULD USE A GOOD SHAMPOO... HAHA, I'M JOKING!";
+                                break;
+                            case 1:
+                                Chat.TextContent = "I DON'T GET THE DIFFERENCE BETWEEN SHAMPOO AND SOAP";
+                                break;
+                            case 2:
+                                Chat.TextContent = "WHY IS SHAMPOO CALLED SHAMPOO?";
+                                break;
+                        }
+                        break;
+
+                    case "File":
+                        int RandomEntryFile = Random.Range (0, 3);
+                        switch (RandomEntryFile) {
+                            case 0:
+                                Chat.TextContent = "I NEED TO BUY FOLDERS FOR MY FILES, I'M SO MESSY";
+                                break;
+                            case 1:
+                                Chat.TextContent = "DO YOU THINK PEOPLE WILL STILL USE FILES IN THE FUTURE?";
+                                break;
+                            case 2:
+                                Chat.TextContent = "I HEARD THE MANAGER LOST AN IMPORTANT FILE";
+                                break;
+                        }
+                        break;
+
+                    case "Coffee":
+                        int RandomEntryCoffee = Random.Range (0, 3);
+                        switch (RandomEntryCoffee) {
+                            case 0:
+                                Chat.TextContent = "I LOVE THE SMELL OF COFFEE IN THE MORNING";
+                                break;
+                            case 1:
+                                Chat.TextContent = "I CAN'T DO ANYTHING WITHOUT MY MORNING COFFEE";
+                                break;
+                            case 2:
+                                Chat.TextContent = "COFFEE IS MORE ADDICTIVE THAN ALCOHOL, IT SHOULD BE ILLEGAL";
+                                break;
+                        }
+                        break;
+
+                    case "Wanted":
+                        int RandomEntryWanted = Random.Range (0, 3);
+                        switch (RandomEntryWanted) {
+                            case 0:
+                                Chat.TextContent = "THE POLICE ARE LOOKING FOR SOMEONE";
+                                break;
+                            case 1:
+                                Chat.TextContent = "SOMEONE ESCAPED POLICE CUSTODY";
+                                break;
+                            case 2:
+                                Chat.TextContent = "THERE IS A WANTED SIGN FOR SOMEONE";
+                                break;
+                        }
+                        break;
+                        // Chat.TextContent = "WHAT A UNIQUE " + Menu.Instance.ManagerItemType[ManagerID].ToUpper () + "!";
+                }
                 break;
             case "Color":
-                Chat.TextContent = Menu.Instance.ManagerItemColor[ManagerID].ToUpper () + " IS SUCH A NICE COLOR";
+                int RandomEntryColor = Random.Range (0, 3);
+                switch (RandomEntryColor) {
+                    case 0:
+                        Chat.TextContent = Menu.Instance.ManagerItemColor[ManagerID].ToUpper () + " IS SUCH A NICE COLOR";
+                        break;
+                    case 1:
+                        Chat.TextContent = "THE MANAGER'S FAVORITE COLOR IS " + Menu.Instance.ManagerItemColor[ManagerID].ToUpper () + "!";
+                        break;
+                    case 2:
+                        Chat.TextContent = Menu.Instance.ManagerItemColor[ManagerID].ToUpper () + " IS WHAT YOU ARE LOOKING FOR";
+                        break;
+                }
                 break;
         }
 
