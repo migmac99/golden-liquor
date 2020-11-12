@@ -1,2 +1,2 @@
 # golden-liquor
-Golden Licor Escape type game
+Golden Liquor Escape type game
